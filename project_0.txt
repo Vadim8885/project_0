@@ -1,0 +1,22 @@
+import random  # импортируем библиотеку случайных чисел
+number = int(input("Введите число от 1 до 100: ")) # предполагаемое число
+x = 1
+y = 100
+predict  = random.randint (x, y) # загадали число
+count = 1 # завели счетчик
+if predict == number: # выход из цикла, если угадали
+    print('Угадали!')
+else:
+    while predict != number: 
+        if number > predict:
+            print("Загаданное число больше: ", predict)
+            x = predict 
+            predict = random.randint(x, y) # если предполагаемое число больше загаданного то ищем его в промежутке от предполагаемого до 100
+            count += 1 # плюсуем показание счетчика за 1 ход
+        elif number < predict:
+            print("Загаданное число меньше: ", predict)
+            y = predict
+            predict = random.randint(x, y) # если предполагаемое число меньше загаданного то ищем его в промежутке от 0 до предполагаемого числа
+            count += 1 # плюсуем показание счетчика за 1 ход
+    print (number)
+    print ('Угадали с', count, 'попытки')
